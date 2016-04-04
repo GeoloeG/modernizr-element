@@ -1,0 +1,55 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="modernizr-import.html">
+
+<!--
+`<modernizr-element>` is a beautiful modernizr generator based on [jdenticon](https://jdenticon.com/).
+
+@hero hero.svg
+@demo demo/index.html
+-->
+<dom-module id="modernizr-element">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+    </style>
+  </template>
+  <script>
+    (function() {
+      Polymer({
+        is: 'modernizr-element',
+
+        properties: {
+          /**
+           * Specifies the seed of the hash of the modernizr to be rendered.
+           */
+          seed: {
+            type: String,
+            observer: "_hashChanged"
+          },
+          /**
+           * Specifies the width and height of the SVG.
+           */
+          size: {
+            type: Number,
+            value: 45
+          },
+          /**
+           * Specifies the hash of the modernizr to be rendered.
+           */
+          _hash: {
+            type: String,
+            computed: "_computeHash(seed)"
+          },
+        },
+
+        attached: function() {
+          jdenticon.update(this.$.svg, this._hash);
+        }
+      });
+    }());
+  </script>
+</dom-module>
+
