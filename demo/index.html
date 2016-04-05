@@ -7,10 +7,12 @@
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
   <link rel="import" href="../../paper-styles/demo-pages.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
 
   <link rel="import" href="../modernizr-element.html">
-  <!-- 
-    we import the modernizr library to be able to construct the list automatically 
+  <!--
+    we import the modernizr library to be able to construct the list automatically
     with `dom-repeat`
   -->
   <link rel="import" href="../modernizr-import.html">
@@ -19,17 +21,8 @@
 
     .centered {
       max-width: 550px;
-      padding: 0;
+      padding: 16px;
       overflow: auto;
-    }
-
-    h1 {
-      margin-left: 30px;
-    }
-
-    h3 {
-      color: var(--google-grey-700);
-      margin-left: 30px;
     }
 
   </style>
@@ -39,34 +32,20 @@
   <template id="t" is="dom-bind">
 
     <div class="vertical-section vertical-section-container centered">
-      <h1>&lt;modernizr-element&gt;</h1>
-      <h2>Available features:</h2>
-      <template is="dom-repeat" items="{{_computeArrayFeatures()}}" as="feature">
-        <p>Feature [[feature.name]]: {{_computeBoolean(feature.value)}}</p>
-      </template>
-      <h2>Data-binding features:</h2>
       <modernizr-element geolocation="{{_geolocation}}"></modernizr-element>
-      <p>Feature geolocation: {{_computeBoolean(_geolocation)}}</p>
+
+      <h2>Simple data-binding with features:</h2>
+      <p>Feature geolocation: {{_geolocation}}</p>
+
+      <h2><code>dom-if</code> data-binding with features:</h2>
+      <template is="dom-if" if="[[_geolocation]]">
+        <p><code>geolocation</code> is supported on this browser</p>
+      </template>
+      <template is="dom-if" if="[[!_geolocation]]">
+        <p><code>geolocation</code> is NOT supported on this browser</p>
+      </template>
     </div>
 
   </template>
-  <script>
-      var t = document.querySelector("#t");
-
-      t._computeArrayFeatures = function() {
-        var arrayFeatures = [];
-        for (var feature in Modernizr) {
-          if (Modernizr.hasOwnProperty(feature)) {
-            arrayFeatures.push({name: feature, value: Modernizr[feature]});
-          }
-        }
-        return arrayFeatures;
-      };
-
-      t._computeBoolean = function(b) {
-        return b ? 'TRUE' : 'FALSE';
-      };
-  </script>
-
 </body>
 </html>
