@@ -30,8 +30,7 @@
   "ignore": [
     "/.*",
     "/test/",
-    "/demo/",
-    "modernizr-custom.js"
+    "/demo/"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0"

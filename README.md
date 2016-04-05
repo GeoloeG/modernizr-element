@@ -43,6 +43,8 @@ gulp.task('modernizr', function(cb) {
 ```
 3. Using the [`gulp-modernizr`](https://github.com/doctyper/gulp-modernizr)
 
+Note: the element contains by default a full build which should NOT be used in production.
+
 ## Usage
 
 Import Custom Element:
