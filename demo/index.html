@@ -2,16 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>identicon-element Demo</title>
+  <title>modernizr-element Demo</title>
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
   <link rel="import" href="../../paper-styles/demo-pages.html">
 
-  <link rel="import" href="../identicon-element.html">
-
-  <link rel="import" href="../../paper-input/paper-input.html">
-  <link rel="import" href="../../paper-button/paper-button.html">
+  <link rel="import" href="../modernizr-element.html">
+  <!-- 
+    we import the modernizr library to be able to construct the list automatically 
+    with `dom-repeat`
+  -->
+  <link rel="import" href="../modernizr-import.html">
 
   <style is="custom-style">
 
@@ -30,20 +32,6 @@
       margin-left: 30px;
     }
 
-    identicon-element {
-      padding: 8px;
-    }
-
-    paper-input {
-      margin: 30px;      
-    }
-
-    section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
   </style>
 </head>
 
@@ -51,40 +39,33 @@
   <template id="t" is="dom-bind">
 
     <div class="vertical-section vertical-section-container centered">
-      <h1>&lt;identicon-element&gt;</h1>
-
-      <!-- TODO PG: add demo stuff from Monica -->
-
-      <h3>Sample Identicon</h3>
-      <section>
-        <identicon-element seed="identicon"></identicon-element>
-        <identicon-element size="100" seed="polymer"></identicon-element>
-        <identicon-element size="250" seed="element"></identicon-element>
-      </section>
-
-      <h3>Generated Identicon</h3>
-      <section>
-        <paper-button id="seedButton" on-tap="generateSeed" raised>Generate!</paper-button>
-        <paper-input id="seedInput" label="Enter a string!" value="{{seed}}"></paper-input>
-        <identicon-element size="100" seed="[[seed]]"></identicon-element>
-      </section>
+      <h1>&lt;modernizr-element&gt;</h1>
+      <h2>Available features:</h2>
+      <template is="dom-repeat" items="{{_computeArrayFeatures()}}" as="feature">
+        <p>Feature [[feature.name]]: {{_computeBoolean(feature.value)}}</p>
+      </template>
+      <h2>Data-binding features:</h2>
+      <modernizr-element geolocation="{{_geolocation}}"></modernizr-element>
+      <p>Feature geolocation: {{_computeBoolean(_geolocation)}}</p>
     </div>
 
   </template>
   <script>
-    addEventListener('WebComponentsReady', function() {
       var t = document.querySelector("#t");
-      var seedInput = document.querySelector("#seedInput");
-      var allowedChar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-      t.generateSeed = function() {
-        var hashValue = "";
-        for( var i = 0; i < 16; i++ ) {
-          hashValue += allowedChar.charAt(Math.floor(Math.random() * allowedChar.length));          
+
+      t._computeArrayFeatures = function() {
+        var arrayFeatures = [];
+        for (var feature in Modernizr) {
+          if (Modernizr.hasOwnProperty(feature)) {
+            arrayFeatures.push({name: feature, value: Modernizr[feature]});
+          }
         }
-        seedInput.value = hashValue;
+        return arrayFeatures;
       };
-      t.generateSeed();
-    });
+
+      t._computeBoolean = function(b) {
+        return b ? 'TRUE' : 'FALSE';
+      };
   </script>
 
 </body>

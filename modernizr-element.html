@@ -18,11 +18,26 @@
   </template>
   <script>
     (function() {
+
+      var _properties = {};
+
+      for (var feature in Modernizr) {
+        if (Modernizr.hasOwnProperty(feature)) {
+          _properties[feature] = {
+            type: Boolean,
+            value: Modernizr[feature],
+            notify: true
+          }
+        }
+      }
+
       Polymer({
         is: 'modernizr-element',
 
-        attached: function() {
+        properties: _properties,
 
+        ready: function() {
+          console.log("geolocation: " + this.geolocation);
         }
       });
     }());
