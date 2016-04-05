@@ -29,11 +29,11 @@
   "ignore": [
     "/.*",
     "/test/",
-    "/demo/"
+    "/demo/",
+    "modernizr-custom.js"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0",
-    "Modernizr": "Modernizr#^1.3.0"
+    "polymer": "Polymer/polymer#^1.2.0"
   },
   "devDependencies": {
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
