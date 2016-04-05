@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>identicon-element basic tests</title>
+  <title>modernizr-element basic tests</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
@@ -11,20 +11,20 @@
   <script src="../../iron-test-helpers/test-helpers.js"></script>
   <script src="../../iron-test-helpers/mock-interactions.js"></script>
 
-  <link rel="import" href="../identicon-element.html">
+  <link rel="import" href="../modernizr-element.html">
 </head>
 <body>
 
   <test-fixture id="basic">
     <template>
-      <identicon-element></identicon-element>
+      <modernizr-element></modernizr-element>
     </template>
   </test-fixture>
 
   <script>
     'use strict';
 
-    suite('<identicon-element>', function( ){
+    suite('<modernizr-element>', function( ){
       test('always true', function() {
         expect(true).to.equal(true);
       });
