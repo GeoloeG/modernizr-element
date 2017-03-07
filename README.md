@@ -47,6 +47,16 @@ Note: the element contains by default a full build which should NOT be used in p
 
 Import Custom Element:
 
+<!---
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="dom-repeat-n.html">
+	  <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
 <link rel="import" href="bower_components/modernizr-element/modernizr-element.html">
 ```
