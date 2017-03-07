@@ -1,12 +1,10 @@
-[![Bower version](https://badge.fury.io/bo/modernizr-element.svg)](https://badge.fury.io/bo/modernizr-element)
-[![Build Status](https://travis-ci.org/MeTaNoV/modernizr-element.svg?branch=master)](https://travis-ci.org/MeTaNoV/modernizr-element)
-[![Dependency Status](https://gemnasium.com/MeTaNoV/modernizr-element.svg)](https://gemnasium.com/MeTaNoV/modernizr-element)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/GeoloeG/modernizr-element)
 
-`<modernizr-element>` is feature detection element based on [modernizr](https://modernizr.com/).
+# `<modernizr-element>` 
 
-## Demo
+## Descripton
 
-[https://metanov.github.io/modernizr-element/](https://metanov.github.io/modernizr-element/components/modernizr-element/demo/index.html)
+A feature detection element based on [modernizr](https://modernizr.com/).
 
 ## Install
 
@@ -60,7 +58,11 @@ And then use it:
 <p>Feature geolocation is : {{_geolocation}}</p>
 ```
 
-See the [Documentation](https://metanov.github.io/modernizr-element/) for more options.
+See the [Documentation](https://geoloeg.github.io/modernizr-element/) for more options.
+
+## More Demos
+
+[https://geoloeg.github.io/modernizr-element/](https://geoloeg.github.io/modernizr-element/components/modernizr-element/demo/)
 
 ## Contributing
 
@@ -69,10 +71,3 @@ See the [Documentation](https://metanov.github.io/modernizr-element/) for more o
 3. Commit your changes: `git commit -m 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-## License
-
-[MIT License](http://opensource.org/licenses/MIT) © Pascal Gula
-
-[![Throughput Graph](https://graphs.waffle.io/MeTaNoV/modernizr-element/throughput.svg)](https://waffle.io/MeTaNoV/modernizr-element/metrics)
-
