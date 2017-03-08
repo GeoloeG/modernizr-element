@@ -1,0 +1,77 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="./modernizr-import.html">
+
+<!--
+`<modernizr-element>` enable you to use feature detection mechanism using Polymer data-binding system.
+
+Example:
+
+    <modernizr-element geolocation="{{_geolocation}}"></modernizr-element>
+    <p>Feature geolocation is : {{_geolocation}}</p>
+
+In order for the element to provide its feature detection functionality, a javascript file named `modernizr-custom.js` need to be generated.
+This file will include all the tests available for feature detection by the `modernizr-element`.
+Once the file has been produced, you will need to copy the file in the same folder as the `modernizr-element.html`. (e.g. `path/to/bower_components/modernizr/`)
+
+There are several ways to produce the `modernizr-custom.js` file:
+
+1. Using the [Modernizr website](https://modernizr.com/download?setclasses) download feature.
+2. Using `modernizr` in your gulp file:
+```javascript
+gulp.task('modernizr', function(cb) {
+  var detects = [
+    'adownload',
+    'blobconstructor',
+    'flash'
+  ].join();
+
+  var output = 'frontend/js/modernizr.custom.js';
+
+  return exec('./node_modules/.bin/modernizr -f ' + detects + ' -d ' + output,
+    cb
+  );
+});
+```
+3. Using the [`gulp-modernizr`](https://github.com/doctyper/gulp-modernizr)
+
+Note: the element contains by default a full build which should NOT be used in production.
+
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="modernizr-element">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+    </style>
+  </template>
+  <script>
+    (function() {
+      var _properties = {};
+
+      if (window.Modernizr) {
+        for (var feature in window.Modernizr) {
+          if (Modernizr.hasOwnProperty(feature)) {
+            _properties[feature] = {
+              type: Boolean,
+              value: window.Modernizr[feature],
+              notify: true
+            }
+          }
+        }
+      } else {
+        console.error("Modernizr object not found, please ensure that you generated and copied a valid modernizr-custom.js file in the element folder.");
+      }
+
+      Polymer({
+        is: 'modernizr-element',
+
+        properties: _properties,
+      });
+    }());
+  </script>
+</dom-module>
+

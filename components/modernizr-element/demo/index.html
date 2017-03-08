@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>modernizr-element Demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../paper-styles/demo-pages.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+
+  <link rel="import" href="../modernizr-element.html">
+  <!--
+    we import the modernizr library to be able to construct the list automatically
+    with `dom-repeat`
+  -->
+  <link rel="import" href="../modernizr-import.html">
+
+  <style is="custom-style">
+
+    .centered {
+      max-width: 550px;
+      padding: 16px;
+      overflow: auto;
+    }
+
+  </style>
+</head>
+
+<body unresolved>
+  <template id="t" is="dom-bind">
+
+    <div class="vertical-section vertical-section-container centered">
+      <modernizr-element geolocation="{{_geolocation}}"></modernizr-element>
+
+      <h2>Simple data-binding with features:</h2>
+      <p>Feature geolocation: {{_geolocation}}</p>
+
+      <h2><code>dom-if</code> data-binding with features:</h2>
+      <template is="dom-if" if="[[_geolocation]]">
+        <p><code>geolocation</code> is supported on this browser</p>
+      </template>
+      <template is="dom-if" if="[[!_geolocation]]">
+        <p><code>geolocation</code> is NOT supported on this browser</p>
+      </template>
+    </div>
+
+  </template>
+</body>
+</html>

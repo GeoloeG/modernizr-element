@@ -1,0 +1,54 @@
+{
+  "name": "modernizr-element",
+  "authors": [
+    "Pascal Gula aka MeTaNoV <pascal.gula@gmail.com>"
+  ],
+  "description": "Element wrapper for the modernizr library",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "web",
+    "component",
+    "components",
+    "custom",
+    "element",
+    "polymer",
+    "modernizr",
+    "feature",
+    "features",
+    "detection"
+  ],
+  "main": "modernizr-element.html",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MeTaNoV/modernizr-element.git"
+  },
+  "license": "MIT",
+  "homepage": "https://metanov.github.io/modernizr-element/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.0.0",
+    "web-component-tester": "^3.4.0"
+  },
+  "_release": "cc88ff99d9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cc88ff99d9f35da7decfd8f643f263b550fe9759"
+  },
+  "_source": "https://github.com/GeoloeG/modernizr-element.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/GeoloeG/modernizr-element.git",
+  "_direct": true
+}
